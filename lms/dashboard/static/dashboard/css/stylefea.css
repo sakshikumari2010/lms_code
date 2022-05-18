@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+nav{
+    font-family: montderrat;
+    background: rgb(168 85 247);
+    height: 60px;
+    width: 100%;
+   
+    
+}
+
+label.logo{
+    color: #f3f2f5;
+    font-size: 2.6rem;
+    font-family: 'Dancing Script', cursive;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+
+}
+.text-col{
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+
+}
+nav ul li a{
+    font-size: 17px;
+    text-transform: capitalize;
+    color: beige;
+    padding: 7px 13px;
+    border-radius: 3px;
+
+
+}
+
+#btn1,#btn2{
+    background-color: white;
+    color:rgb(150, 51, 244) ;
+    font-weight: bold;
+    
+}
+#btn1:hover,#btn2:hover{
+    background-color:rgb(73, 7, 135) ;
+    color: white;
+}
+
+a.active, a:hover{
+    background-color:rgb(150, 51, 244) ;
+    /* background-color: #553c9a; */
+    transition: .5s;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor :pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+
+}
+@media (max-width : 952px)
+{
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width:100%;
+        height: 100vh;
+        background-color: blueviolet;
+        top: 60.3px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+
+    }
+    a:hover,a.active{
+        background: none;
+        color: rgb(16, 1, 30);
+    }
+    #check:checked ~ ul{
+        left: 0;
+
+    }
+}

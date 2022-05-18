@@ -1,0 +1,72 @@
+{% extends 'dashboard/base.html' %}
+{% load course_custom_tags %}
+
+{% block title%}
+LMS-Learning Management System
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- {{request.user.is_authenticated}} -->
+<style>
+    #submit-me1,
+    #submit-me2 {
+        background-color: rgb(150, 51, 244);
+        color: white;
+
+    }
+
+    #submit-me1:hover,
+    #submit-me2:hover {
+        background-color: #3E065F;
+        color: white
+    }
+</style>
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        {% for course in courses%}
+        <div class="col mx-auto">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="{{course.thumbnail.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{course.name}}</h5>
+                    <!-- <small>
+                        {{course.thumbnail.url}}
+                    </small> -->
+                    <p class="card-text">
+                    <p>Save {{course.discount}}%</p>
+                    <p> <del> {{course.price |rupee}} </del>
+                        &nbsp;
+                    <h1> ₹{%cal_selprice course.price course.discount%}</h1>
+                    <!-- <span>₹ 3000 </span> -->
+                    </p>
+
+                    </p>
+                    <!-- <a href="#" class="btn btn-primary">Get Started</a> -->
+                </div>
+                <div class="card-footer ">
+                    <div class="row no-gutters">
+                        <div class="col border-right-0">
+                            <a id="submit-me1" href="/checkout/{{course.slug}}" class="btn btn-light  btn-block" role="button">Enroll Now</a>
+                        </div>
+                        <div class="col ">
+                            <a id="submit-me2" href="/course/{{course.slug}}" class="btn  btn-light btn-block">Show
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<!-- <p>{{courses}}</p> -->
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'dashboard/base.html' %}
+{% load course_custom_tags %}
+
+{%load static%}
+
+
+{% block title%}
+LMS-Login
+{% endblock %}
+
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');    
+        #sub{
+            background-color: rgb(150, 51, 244);
+            color: white;
+            font-size: 1.2rem;
+        }
+        #sub:hover{
+            background-color: #3E065F;
+            color: white
+        }
+        #login{
+            font-family: 'Roboto Slab', serif;
+            color: #370665;
+            text-align: center;
+    
+        }
+        p{
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+        }
+        img{
+        float: right;
+    }
+        
+    </style>
+
+
+<div class="container">
+    <h1 class="display-1" id="login">Login- Here</h1>
+    <img src="{% static 'dashboard/images/bbss.png'%}" alt="" srcset="">
+    <br>
+    <div>
+
+        <form action="http://localhost:8000/login/" method="POST">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+
+            <input class="btn btn-light  btn-block" role="button" type="submit" value="Submit" id="sub">
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

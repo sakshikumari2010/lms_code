@@ -1,0 +1,130 @@
+{%load static%}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    {% block title%}
+
+    {% endblock %}
+  </title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.ico' %}" type="image/x-icon">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="{% static 'dashboard/css/stylefea.css' %}"> -->
+
+  {% block css %}
+
+  {% endblock %}
+
+  <style>
+    #nav_id {
+      background: rgb(168 85 247);
+    }
+
+    .nav-colur {
+      color: white;
+      /* font-size: 1rem; */
+      margin-right: 30px;
+      box-sizing: border-box;
+
+
+    }
+
+    #lms {
+      color: white;
+    }
+
+    .nav-colur:hover {
+      background-color: rgb(150, 51, 244);
+      color: black;
+      border-radius: 3px;
+
+    }
+
+    .navbar-brand {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+    }
+
+    #log1,
+    #log2,#log3 {
+      background-color: white;
+      color: rgb(150, 51, 244);
+
+      /* font-weight: bold; */
+      border-radius: 3px;
+    }
+
+    #log1:hover,
+    #log2:hover,#log3:hover {
+      background-color: rgb(73, 7, 135);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div>
+    <nav id="nav_id" class="navbar navbar-expand-lg  ">
+      <a id="lms" class="navbar-brand " href="#">LMS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ">
+          <li class="nav-item active">
+            <a class="nav-link nav-colur " href="/">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-colur" href="/">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-colur" href="/">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-colur" href="/">Courses</a>
+          </li>
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a  id="log3" class="nav-link nav-colur " href="/logout">Logout</a>
+          </li>
+          {%  else %}
+          <li class="nav-item">
+            <a id="log1" class="nav-link nav-colur " href="/login">Login-Here</a>
+          </li>
+          <li class="nav-item">
+            <a id="log2" class="nav-link nav-colur" href="/signup">Register-Here</a>
+          </li>
+         {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  {% block content %}
+
+
+  {% endblock %}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
